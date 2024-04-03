@@ -1,0 +1,11 @@
+bot:
+  token: "enter your bot token"
+  username: "enter your bot username"
+
+
+database:
+  username: "enter your database username" 
+  password: "enter your database password"
+  host: "enter your database host"
+  port: "enter your database port"
+  name: "enter your database name"
