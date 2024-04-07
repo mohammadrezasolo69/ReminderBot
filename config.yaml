@@ -4,8 +4,4 @@ bot:
 
 
 database:
-  username: "enter your database username" 
-  password: "enter your database password"
-  host: "enter your database host"
-  port: "enter your database port"
-  name: "enter your database name"
+  url: "enter your database url"
