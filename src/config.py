@@ -19,8 +19,9 @@ logger = logging.getLogger(__name__)
 
 
 # ------------------------------- database ------------------------------------------------
-_engine = create_engine(url=settings.database.url)
-session = sessionmaker(autocommit=False, bind=_engine)
+engine = create_engine(url=settings.database.url)
+session = sessionmaker(autocommit=False, bind=engine)
 BaseModel = declarative_base()
 
-
+def create_table():
+    BaseModel.metadata.create_all(bind=engine)
