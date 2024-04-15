@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 from dynaconf import Dynaconf
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base,sessionmaker
+from sqlalchemy.orm import declarative_base,Session
 
 
 # ------------------------------ config dynaconf ---------------------------------------
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 # ------------------------------- database ------------------------------------------------
 engine = create_engine(url=settings.database.url)
-session = sessionmaker(autocommit=False, bind=engine)
+session = Session(bind=engine)
 BaseModel = declarative_base()
 
 def create_table():

@@ -3,14 +3,14 @@ from datetime import datetime
 from sqlalchemy import String,CheckConstraint,UniqueConstraint,DateTime,Text,ForeignKey,text
 from sqlalchemy.orm import Mapped,mapped_column,relationship
 
-from config import BaseModel,create_table
+from .config import BaseModel,create_table
 
 
 class UserAccount(BaseModel):
     __tablename__ = 'user_accounts'
 
     telegram_id : Mapped[int] = mapped_column(primary_key=True,unique=True)
-    phone_number : Mapped[str] = mapped_column(String(15),unique=True)
+    phone_number : Mapped[Optional[str]] = mapped_column(String(15),unique=True,nullable=True)
     username : Mapped[Optional[str]] = mapped_column(String(50),nullable=True,unique=True)
     full_name : Mapped[Optional[str]] = mapped_column(String(50),nullable=True)
     is_active :Mapped[bool] = mapped_column(default=True)
@@ -23,7 +23,7 @@ class UserAccount(BaseModel):
     )
 
     def __repr__(self):
-        return self.phone_number
+        return str(self.telegram_id)
 
 
 class Note(BaseModel):

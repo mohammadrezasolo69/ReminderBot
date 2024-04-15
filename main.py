@@ -1,6 +1,6 @@
 import os
 
-from bot import main
+from src.bot import main
 
 
 os.system('clear')
